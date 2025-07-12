@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import aiImage from './assets/ai.jpeg';
 import resumePdf from './assets/resume1.pdf';
-import oneImage from './assets/1.jpeg';
+import oneImage from './assets/1.JPEG';
 import cert1 from './assets/1_certi.pdf';
 import cert2 from './assets/2_certi.pdf';
 import cert3 from './assets/3_certi.pdf';
@@ -313,7 +313,7 @@ function App() {
                 {/* Profile Image */}
                 <div className="relative w-64 h-64 mx-auto">
                   <img
-                    src="src/assets/1.jpeg"
+                    src={oneImage}
                     alt="Sneha Gupta"
                     className="w-full h-full object-cover rounded-full shadow-2xl border-4 border-blue-300/50 hover:shadow-blue-300/50 transition-all duration-300 hover:scale-105"
                   />
