@@ -313,7 +313,7 @@ function App() {
                 {/* Profile Image */}
                 <div className="relative w-64 h-64 mx-auto">
                   <img
-                    src={oneImage}
+                    src="/src/assets/1.jpeg"
                     alt="Sneha Gupta"
                     className="w-full h-full object-cover rounded-full shadow-2xl border-4 border-blue-300/50 hover:shadow-blue-300/50 transition-all duration-300 hover:scale-105"
                   />
