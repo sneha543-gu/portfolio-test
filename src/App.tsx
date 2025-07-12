@@ -19,6 +19,8 @@ import {
   Database,
   BarChart3
 } from 'lucide-react';
+import aiImage from './assets/ai.jpeg';
+import resumePdf from './assets/resume1.pdf';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -252,7 +254,7 @@ function App() {
               
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <a
-                  href="/src/assets/resume1.pdf"
+                  href={resumePdf}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-center space-x-2 bg-blue-300 hover:bg-blue-400 text-slate-800 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-300/50"
@@ -261,7 +263,7 @@ function App() {
                   <span>View Resume</span>
                 </a>
                 <a
-                  href="/src/assets/resume1.pdf"
+                  href={resumePdf}
                   download
                   className="group flex items-center justify-center space-x-2 bg-transparent border-2 border-blue-300 hover:bg-blue-300 hover:text-slate-800 text-blue-300 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-300/50"
                 >
@@ -305,7 +307,7 @@ function App() {
                 {/* Profile Image */}
                 <div className="relative w-64 h-64 mx-auto">
                   <img
-                    src="/src/assets/ai.jpeg"
+                    src={aiImage}
                     alt="Sneha Gupta"
                     className="w-full h-full object-cover rounded-full shadow-2xl border-4 border-blue-300/50 hover:shadow-blue-300/50 transition-all duration-300 hover:scale-105"
                   />
