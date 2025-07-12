@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import aiImage from './assets/ai.jpeg';
 import resumePdf from './assets/resume1.pdf';
+import oneImage from './assets/1.jpeg';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -307,7 +308,7 @@ function App() {
                 {/* Profile Image */}
                 <div className="relative w-64 h-64 mx-auto">
                   <img
-                    src="/assets/ai.jpeg"
+                    src={oneImage}
                     alt="Sneha Gupta"
                     className="w-full h-full object-cover rounded-full shadow-2xl border-4 border-blue-300/50 hover:shadow-blue-300/50 transition-all duration-300 hover:scale-105"
                   />
