@@ -22,6 +22,12 @@ import {
 import aiImage from './assets/ai.jpeg';
 import resumePdf from './assets/resume1.pdf';
 import oneImage from './assets/1.jpeg';
+import cert1 from './assets/1_certi.pdf';
+import cert2 from './assets/2_certi.pdf';
+import cert3 from './assets/3_certi.pdf';
+import cert4 from './assets/4_certi.jpeg';
+import cert5 from './assets/5_certi.jpeg';
+import cert6 from './assets/6_certi.png';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -94,43 +100,42 @@ function App() {
 
   const projects = [
     {
-      title: 'Calories Burn Prediction',
+      title: 'Calories Burned Prediction',
       description: 'Built a machine learning model to predict calories burned based on users\' walking distance for personalized fitness insights.',
       tags: ['Python', 'scikit-learn', 'numpy', 'pandas'],
-      image: 'https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: 'https://calories-burn-4ho9v5tv3awkzxkj5sr8kv.streamlit.app/'
     },
     {
-      title: 'Guess Card Game',
-      description: 'Created an interactive Guess Card Game offering a fun and engaging user experience.',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      image: 'https://images.pexels.com/photos/1871508/pexels-photo-1871508.jpeg?auto=compress&cs=tinysrgb&w=400'
+      title: 'Send Email',
+      description: 'A Python-based app to send emails easily with customizable content.',
+      tags: ['python', 'streamlit', 'email'],
+      image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: 'https://send-email-2oktjtjcwery3tmdejnlhx.streamlit.app/'
     },
     {
-      title: 'Sales & Profit Dashboard',
-      description: 'Designed an intuitive dashboard to visualize and analyze sales and profit trends for data-driven business insights.',
-      tags: ['IBM Cognos Tool'],
-      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400'
+      title: 'Send Instagram Post',
+      description: 'A Python-based tool for scheduling and sending Instagram posts automatically.',
+      tags: ['python', 'html', 'css'],
+      image: 'https://images.pexels.com/photos/248533/pexels-photo-248533.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: 'https://insta-easy-poster.lovable.app/'
     },
     {
-      title: 'Paint App',
-      description: 'Created a simple paint app for drawing and sketching with an easy-to-use interface.',
-      tags: ['Java', 'Swing'],
-      image: 'https://images.pexels.com/photos/1143754/pexels-photo-1143754.jpeg?auto=compress&cs=tinysrgb&w=400'
-    },
-    {
-      title: 'Student Marks Prediction',
-      description: 'Developed a model to predict student marks using multiple linear regression based on study hours, attendance, and other factors.',
-      tags: ['Python', 'Pandas', 'Numpy', 'Scikit-learn'],
-      image: 'https://images.pexels.com/photos/159775/library-la-trobe-study-students-159775.jpeg?auto=compress&cs=tinysrgb&w=400'
+      title: 'Cultural Heritage through Folktale Generation',
+      description: 'A project focused on preserving cultural heritage by automatically generating traditional folktales.',
+      tags: ['python', 'openai', 'gradio'],
+      image: 'https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: 'https://talesmith-folk-lore-forge.lovable.app'
     }
   ];
 
   const certificates = [
-    { title: 'IBM Cognos Analytics', issuer: 'IBM' },
-    { title: 'Data Visualization with Python', issuer: 'Cognitive Class' },
-    { title: 'Java Training', issuer: 'Spoken Tutorial Project, IIT Bombay' },
-    { title: 'Web Development using PHP and MySQL', issuer: 'LAPT' },
-    { title: 'Project Designing', issuer: 'CT University' }
+    { title: 'IBM Cognos Analytics', issuer: 'IBM', file: cert1 },
+    { title: 'Data Visualization with Python', issuer: 'Cognitive Class', file: cert2 },
+    { title: 'Java Training', issuer: 'Spoken Tutorial Project, IIT Bombay', file: cert3 },
+    { title: 'Web Development using PHP and MySQL', issuer: 'LAPT', file: cert4 },
+    { title: 'Machine Learning with Python', issuer: 'IBM', file: cert5 },
+    { title: 'Participant in the HackTheBlockxCTU', issuer: 'CT University', file: cert6 }
   ];
 
   const contacts = [
@@ -379,20 +384,10 @@ function App() {
           <div className="relative">
             {/* Timeline Line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-400 to-purple-400 rounded-full shadow-lg shadow-blue-400/50"></div>
-            
-            {/* Animated Particles */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-full">
-              {[...Array(5)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-2 h-2 bg-blue-400 rounded-full animate-bounce"
-                  style={{
-                    left: '-4px',
-                    animationDelay: `${i * 0.5}s`,
-                    animationDuration: '2s',
-                    top: `${i * 20}%`
-                  }}
-                />
+            {/* Glowing Orbs at each skill block */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-full flex flex-col justify-between items-center pointer-events-none" style={{top: 0, bottom: 0}}>
+              {skills.map((_, i) => (
+                <div key={i} className="w-6 h-6 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full shadow-lg animate-pulse" style={{margin: '48px 0'}}></div>
               ))}
             </div>
 
@@ -451,18 +446,12 @@ function App() {
                     alt={project.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 right-4">
-                    <button className="bg-blue-300 text-slate-800 p-2 rounded-full hover:bg-blue-400 transition-colors hover:scale-110">
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
-                  </div>
                 </div>
                 
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3">{project.title}</h3>
                   <p className="text-gray-300 mb-4 text-sm leading-relaxed">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
@@ -472,6 +461,16 @@ function App() {
                       </span>
                     ))}
                   </div>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-5 py-2 bg-blue-300 hover:bg-blue-400 text-slate-800 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-300/50"
+                    >
+                      <ArrowRight className="w-5 h-5 mr-2" /> Show Project
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -519,8 +518,15 @@ function App() {
                 <p className="text-gray-400 mb-4">{cert.issuer}</p>
                 
                 <button className="w-full bg-blue-300 hover:bg-blue-400 text-slate-800 px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2">
-                  <ExternalLink className="w-4 h-4" />
-                  <span>View Certificate</span>
+                  <a
+                    href={cert.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 w-full justify-center"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span>View Certificate</span>
+                  </a>
                 </button>
               </div>
             ))}
