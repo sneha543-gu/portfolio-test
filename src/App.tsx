@@ -22,7 +22,7 @@ import {
   Moon
 } from 'lucide-react';
 import aiImage from './assets/ai.jpeg';
-import resumePdf from './assets/resume1.pdf';
+import resumePdf from './assets/Sneha-Gupta.pdf';
 import oneImage from './assets/1.png';
 import cert1 from './assets/1_certi.pdf';
 import cert2 from './assets/2_certi.pdf';
