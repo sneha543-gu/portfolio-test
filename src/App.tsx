@@ -17,9 +17,7 @@ import {
   X,
   Code,
   Database,
-  BarChart3,
-  Sun,
-  Moon
+  BarChart3
 } from 'lucide-react';
 import aiImage from './assets/ai.jpeg';
 import resumePdf from './assets/Sneha-Gupta.pdf';
@@ -35,7 +33,6 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [showAboutCards, setShowAboutCards] = useState({ innovation: false, leadership: false, learning: false });
-  const [theme, setTheme] = useState('dark');
   // Remove loading state and useEffect
   // const [isLoading, setIsLoading] = useState(true);
 
@@ -47,20 +44,6 @@ function App() {
       setIsMenuOpen(false);
     }
   };
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
-
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [theme]);
-
-  // Remove the loading useEffect
 
   useEffect(() => {
     const handleScroll = () => {
@@ -178,7 +161,7 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-800 text-gray-900 dark:text-gray-100 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-800 text-gray-100 overflow-x-hidden">
       {/* Animated Background */}
       <div className="fixed inset-0 pointer-events-none">
         {/* Blinking Dots */}
@@ -214,17 +197,6 @@ function App() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-full hover:bg-slate-700 transition-colors focus:outline-none"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? (
-                  <Sun className="w-6 h-6 text-yellow-300" />
-                ) : (
-                  <Moon className="w-6 h-6 text-slate-800" />
-                )}
-              </button>
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -252,17 +224,6 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden bg-slate-700/95 backdrop-blur-md border-t border-slate-500">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button
-                onClick={toggleTheme}
-                className="block w-full text-left px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-blue-300"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? (
-                  <Sun className="w-5 h-5" />
-                ) : (
-                  <Moon className="w-5 h-5" />
-                )}
-              </button>
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -280,7 +241,7 @@ function App() {
       </nav>
 
       {/* Home Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-white to-blue-100 dark:from-slate-700 dark:via-slate-600 dark:to-blue-300 dark:opacity-90">
+      <section id="home" className="min-h-screen flex flex-col items-center justify-center relative bg-gradient-to-br from-slate-800 to-blue-900">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - Text with slide-in animation */}
@@ -298,12 +259,12 @@ function App() {
                 </h2>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full max-w-xs sm:max-w-none">
                 <a
                   href={resumePdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-300 dark:hover:bg-blue-400 text-white dark:text-slate-800 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-300/50"
+                  className="group flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-300/50 w-full sm:w-auto"
                 >
                   <Eye className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                   <span>View Resume</span>
@@ -311,7 +272,7 @@ function App() {
                 <a
                   href={resumePdf}
                   download
-                  className="group flex items-center justify-center space-x-2 bg-transparent border-2 border-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-300 dark:hover:bg-blue-300 dark:hover:text-slate-800 text-blue-600 dark:text-blue-300 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-300/50"
+                  className="group flex items-center justify-center space-x-2 bg-transparent border-2 border-blue-600 hover:bg-blue-600 hover:text-white text-blue-600 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-300/50 w-full sm:w-auto"
                 >
                   <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
                   <span>Download Resume</span>
@@ -365,7 +326,7 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white dark:bg-slate-800/50 backdrop-blur-sm">
+      <section id="about" className="py-20 bg-slate-800/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -378,8 +339,8 @@ function App() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-slate-600 animate-slide-up">
-              <p className="text-lg text-gray-300 leading-relaxed">
+            <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-slate-700 animate-slide-up">
+              <p className="text-lg text-gray-100 leading-relaxed">
                 I am pursuing a Bachelor of Computer Applications with a specialization in Artificial Intelligence and Data Science at CT University. My goal is to become a highly skilled Machine Learning Engineer. Currently, I am interning at Linux World Informatics, applying machine learning theory into practical, real-world projects to deliver intelligent solutions.
               </p>
             </div>
@@ -412,7 +373,7 @@ function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-gray-100 dark:bg-slate-900/50 backdrop-blur-sm">
+      <section id="skills" className="py-20 bg-slate-900/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 animate-typewriter">Skills</h2>
@@ -461,7 +422,7 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-white dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-700">
+      <section id="projects" className="py-20 bg-gradient-to-br from-slate-800 to-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 relative">
@@ -519,7 +480,7 @@ function App() {
       </section>
 
       {/* Certificates Section */}
-      <section id="certificates" className="py-20 bg-gray-100 dark:bg-slate-900/50 backdrop-blur-sm">
+      <section id="certificates" className="py-20 bg-slate-900/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-left animate-slide-in-left">
@@ -575,7 +536,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800">
+      <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 relative">
