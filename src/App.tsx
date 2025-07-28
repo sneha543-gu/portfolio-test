@@ -28,6 +28,9 @@ import cert3 from './assets/3_certi.pdf';
 import cert4 from './assets/4_certi.jpeg';
 import cert5 from './assets/5_certi.jpeg';
 import cert6 from './assets/6_certi.png';
+import gestureImage from './assets/images.jpeg';
+import caloriesImage from './assets/cal.jpeg';
+import culturalImage from './assets/123.jpg';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -102,31 +105,38 @@ function App() {
 
   const projects = [
     {
+      title: 'Gesture Controlled Dashboard',
+      description: 'Developed a gesture-controlled action dashboard using hand detection to trigger system tasks like launching Chrome, Notepad, File Explorer, Youtube, Google, Edge, and managing AWS EC2 instances.',
+      tags: ['python', 'cv2', 'cvzone', 'os', 'webbrowser', 'boto3', 'streamlit'],
+      image: gestureImage, // hand gesture/AI dashboard
+      link: 'https://github.com/sneha543-gu/Hand_detection.git'
+    },
+    {
       title: 'Calories Burned Prediction',
       description: 'Built a machine learning model to predict calories burned based on users\' walking distance for personalized fitness insights.',
       tags: ['Python', 'scikit-learn', 'numpy', 'pandas'],
-      image: 'https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: caloriesImage, // fitness/calorie/health
       link: 'https://calories-burn-4ho9v5tv3awkzxkj5sr8kv.streamlit.app/'
     },
     {
       title: 'Send Email',
       description: 'A Python-based app to send emails easily with customizable content.',
       tags: ['python', 'streamlit', 'email'],
-      image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=compress&w=400',
       link: 'https://send-email-2oktjtjcwery3tmdejnlhx.streamlit.app/'
     },
     {
       title: 'Send Instagram Post',
       description: 'A Python-based tool for scheduling and sending Instagram posts automatically.',
       tags: ['python', 'html', 'css'],
-      image: 'https://images.pexels.com/photos/248533/pexels-photo-248533.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=compress&w=400',
       link: 'https://insta-easy-poster.lovable.app/'
     },
     {
       title: 'Cultural Heritage through Folktale Generation',
       description: 'A project focused on preserving cultural heritage by automatically generating traditional folktales.',
       tags: ['python', 'openai', 'gradio'],
-      image: 'https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: culturalImage, // cultural/folktale/storytelling
       link: 'https://talesmith-folk-lore-forge.lovable.app'
     }
   ];
